@@ -1,0 +1,24 @@
+title: Default page (extended)
+
+extends@:
+  type: default
+  context: blueprints://pages
+
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+
+      fields:
+        custom:
+          type: tab
+          title: Custom settings
+          fields:
+            header.custom_settings.an_example_text_field:
+              type: text
+              label: Add a number
+              default: 5
+              validate:
+                required: false
+                type: int

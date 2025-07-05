@@ -1,0 +1,47 @@
+{% extends 'layouts/base.html.twig' %}
+
+{% block breadcrumbs %}
+  <section class="breadcrumbs-custom bg-image context-dark" style="background-image: url(images/sjb-header-apropos.jpg);">
+    <div class="breadcrumbs-custom-inner">
+      <div class="container breadcrumbs-custom-container">
+        <div class="breadcrumbs-custom-main">
+          <h6 class="breadcrumbs-custom-subtitle title-decorated">{{ page.parent.root ? page.title : page.parent.title }}</h6>
+          <h1 class="breadcrumbs-custom-title">{{ page.title }}</h1>
+        </div>
+        <ul class="breadcrumbs-custom-path">
+          {{ breadcrumbs(page)|raw }}
+        </ul>
+      </div>
+    </div>
+  </section>
+{% endblock %}
+
+{% block content %}
+<section class="section section-lg">
+  <div class="container">
+    <div class="row row-50 row-xxl-70">
+      {% for post in page.children %}
+        <div class="col-md-6 scaleFadeInWrap">
+          <div class="wow scaleFadeIn">
+            <article class="post-modern"><a class="post-modern-media" href="coke-et-paix.php"><img src="images/dominic-champoux.png" alt=""/></a>
+              <h4 class="post-modern-title">
+                <a class="underlined" href="{{ post.link }}">{{ post.title }}</a>
+              </h4>
+              <ul class="post-modern-meta">
+                <li>par {{ post.header.custom_settings.author_name }}</li>
+                <li>
+                  <time datetime="{{ post.header.publish_date|date('Y-m-d') }}">{{
+                    post.header.publish_date|td(null, 'j F Y') }}</time>
+                </li>
+              </ul>
+              {{ post.summary|raw }}
+            </article>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+

@@ -115,21 +115,28 @@ form:
   validation: loose
 
   fields:
+    photo:
+      name: pic
+      type: file
+      label: Photo de profil
+      destination: 'themes://eglisesjb/assets'
+      multiple: false
+      accept:
+        - image/*
+
     photo_file:
       type: text
       label: Fichier de la photo
 
-    last_name:
+    full_name:
       type: text
-      label: Nom de famille
+      label: Nom complet
       validate:
         required: true
 
-    first_name:
+    role:
       type: text
-      label: Prénom
-      validate:
-        required: true
+      label: Role
 
     email:
       type: email

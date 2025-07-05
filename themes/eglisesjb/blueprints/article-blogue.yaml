@@ -1,0 +1,25 @@
+title: Article de blogue
+
+extends@:
+  type: default
+  context: blueprints://pages
+
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+
+      fields:
+        custom:
+          type: tab
+          title: Article de Blogue
+          fields:
+            header.custom_settings.author_name:
+              type: text
+              label: Assigner un auteur
+              default: Alain Mongeau
+              validate:
+                required: true
+                type: text
+

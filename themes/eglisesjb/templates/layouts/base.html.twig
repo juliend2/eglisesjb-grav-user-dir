@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html class="wide wow-animation" lang="{{ grav.language.getActive ?: grav.config.site.default_lang }}">
+<head>
+  <title>{% if page.title %}{{ page.title|e('html') }} | {% endif %}{{ site.title|e('html') }}</title>
+  <meta name="format-detection" content="telephone=no">
+  <meta name="viewport" content="width=device-width height=device-height initial-scale=1.0 maximum-scale=1.0 user-scalable=0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8">
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <!-- Stylesheets-->
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css2?family=Libre+Baskerville&amp;family=Work+Sans:wght@300;400;600&amp;display=swap">
+
+  {% block javascripts %}
+    {% do assets.addJs('theme://js/core.min.js') %}
+    {% do assets.addJs('theme://js/script.js') %}
+  {% endblock %}
+
+  {% block stylesheets %}
+    {% do assets.addCss('theme://css/bootstrap.css') %}
+    {% do assets.addCss('theme://css/fonts.css') %}
+    {% do assets.addCss('theme://css/style.css') %}
+  {% endblock %}
+
+  <meta property="og:title" content="{{ page.title }}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://eglisesjb.com/" />
+
+  {% block assets deferred %}
+    {{ assets.css() | raw }}
+  {% endblock %}
+</head>
+
+<body>
+<div class="page">
+
+  <!-- Page Header-->
+  <header class="section page-header">
+
+    <!-- RD Navbar-->
+    <div class="rd-navbar-wrap">
+      <nav class="rd-navbar rd-navbar-minimal" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fixed" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static" data-lg-device-layout="rd-navbar-fixed" data-xl-layout="rd-navbar-static" data-xl-device-layout="rd-navbar-static" data-xxl-layout="rd-navbar-static" data-xxl-device-layout="rd-navbar-static" data-lg-stick-up-offset="15px" data-xl-stick-up-offset="15px" data-xxl-stick-up-offset="15px" data-lg-stick-up="true" data-xl-stick-up="true" data-xxl-stick-up="true">
+
+        <div class="rd-navbar-main-outer">
+          <div class="rd-navbar-main">
+            <!-- RD Navbar Panel-->
+            <div class="rd-navbar-panel">
+              <!-- RD Navbar Toggle-->
+              <button class="rd-navbar-toggle" data-rd-navbar-toggle="#rd-navbar-nav-wrap-1"><span></span></button>
+              <!-- RD Navbar Brand-->
+              <!--Brand--><a class="brand" href="index.php"><img class="brand-logo-dark" src="images/web-logo.png" alt="" /><img class="brand-logo-light" src="images/web-logo-inverted.png" alt="" /></a>
+            </div>
+            <div class="rd-navbar-main-element">
+              <div class="rd-navbar-nav-wrap" id="rd-navbar-nav-wrap-1">
+                <!-- RD Navbar Nav-->
+
+                {% include 'partials/menu.html.twig' %}
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  {% block breadcrumbs %}
+  <!-- in most sections apart from home, we have those breadcrumb headers -->
+  {% endblock %}
+
+  {% block content %}
+  {% endblock %}
+
+  <!-- Page Footer-->
+  <footer class="section footer-standard bg-gray-800">
+	<div class="footer-standard-main">
+	  <div class="container">
+		<div class="row row-50">
+		  <div class="col-lg-4">
+			<div class="inset-right-1">
+			  <h4 class="font-weight-normal">Saint-Jean-Baptiste c'est… </h4>
+			  <p class="big">Un endroit où hommes et femmes, jeunes et vieux, familles et personnes seules, riches et pauvres, gens d’ici et d’ailleurs peuvent se retrouver pour fraterniser et collaborer ensemble.</p>
+			</div>
+		  </div>
+		  <div class="col-sm-6 col-md-5 col-lg-4">
+			<div class="box-1">
+			  <h4 class="font-weight-normal">Pour nous contacter</h4>
+			  <ul class="list-sm">
+				<li class="object-inline big"><span class="icon icon-md mdi mdi-email text-white"></span><a class="footer-link" href="https://goo.gl/maps/smowRoTb5Tq6drSt5">Paroisse Saint-Jean-Baptiste <br> 4237, avenue Henri-Julien <br> Montréal, QC, Canada, H2W 2K7</a></li>
+				<li class="object-inline big"><span class="icon icon-md mdi mdi-phone text-white"></span><a class="footer-link" href="tel:+1-514-842-9811">514 842-9811</a></li>
+				<li class="object-inline big"><span class="icon icon-md mdi mdi-mail-ru text-white"></span><a class="footer-link" href="mailto:info@eglisesjb.com">info@eglisesjb.com</a></li>
+			  </ul>
+			</div>
+		  </div>
+		  <div class="col-sm-6 col-md-7 col-lg-4">
+			<h4 class="font-weight-normal">Horaire des messes</h4>
+			<ul>
+			  <li>Dimanche&nbsp;: 11&nbsp;h</li>
+			  <!--<li>Mercredi&nbsp;: 17&nbsp;h&nbsp;30</li>-->
+			</ul>
+		  </div>
+		</div>
+	  </div>
+	</div>
+	<div class="container">
+	  <div class="footer-standard-aside text-center text-md-right">
+		<p class="rights big"><span>&copy;&nbsp;</span><span class="copyright-year"></span><span>&nbsp;</span><span>Tous droits réservés.</span><span>&nbsp;</span><span>Site réalisé par</span><a href="https://juliendesrosiers.com" target="_blank">&nbsp;Julien Desrosiers.</a><span>&nbsp;</span><span>Photos de Rodrigue Escayola.</span></p>
+	  </div>
+	</div>
+  </footer>
+</div>
+<div class="preloader">
+  <div class="preloader-logo"><img src="images/web-logo.png" alt="" />
+  </div>
+  <div class="preloader-body">
+	<div id="loadingProgressG">
+	  <div class="loadingProgressG" id="loadingProgressG_1"></div>
+	</div>
+  </div>
+</div>
+<!-- Global Mailform Output-->
+<div class="snackbars" id="form-output-global"></div>
+<!-- Javascript-->
+  {{ assets.js() | raw }}
+</body>
+
+</html>

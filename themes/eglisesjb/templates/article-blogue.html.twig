@@ -1,0 +1,65 @@
+{% extends 'layouts/base.html.twig' %}
+
+{% block breadcrumbs %}
+  <section class="breadcrumbs-custom bg-image context-dark" style="background-image: url(images/sjb-header-apropos.jpg);">
+    <div class="breadcrumbs-custom-inner">
+      <div class="container breadcrumbs-custom-container">
+        <div class="breadcrumbs-custom-main">
+          <h6 class="breadcrumbs-custom-subtitle title-decorated">{{ page.parent.root ? page.title : page.parent.title }}</h6>
+          <h1 class="breadcrumbs-custom-title">{{ page.title }}</h1>
+        </div>
+        <ul class="breadcrumbs-custom-path">
+          {{ breadcrumbs(page)|raw }}
+        </ul>
+      </div>
+    </div>
+  </section>
+{% endblock %}
+
+{% block content %}
+<section class="section section-lg">
+  <div class="container">
+    <div class="row row-50">
+      <div class="col-lg-8">
+        <article class="post-creative">
+          <h3 class="post-creative-title">{{ page.title }}</h3>
+          <ul class="post-creative-meta">
+            <li><span class="icon mdi mdi-calendar-clock"></span>
+              <time datetime="{{ page.header.publish_date|date('Y-m-d') }}">{{ page.header.publish_date|td(null, 'j F Y') }}</time>
+            </li>
+            {% for tag in page.taxonomy.tag %}
+            <li>
+              <span class="icon mdi mdi-tag-multiple"></span>
+              <a href="blogue.php">{{ tag }}</a>
+            </li>
+            {% endfor %}
+          </ul>
+
+          {{ page.content|replace({ (page.summary): '' })|raw }}
+
+        </article>
+      </div>
+      <div class="col-lg-4">
+        <!-- Profile Thin-->
+        {% set author = getAuthorByName(page.header.custom_settings.author_name) %}
+        {% if author %}
+          <article class="profile-thin">
+            <div class="profile-thin-aside">
+              <img class="profile-thin-image" src="{{ array_keys(author.photo)[0]|replace({'themes://eglisesjb': theme_url})}}" alt="" />
+            </div>
+            <div class="profile-thin-main">
+                <p class="profile-thin-title">{{ author.full_name }}</p>
+                <p class="profile-thin-subtitle">{{ author.role }}</p>
+                <p>{{ author.short_bio }}</p>
+            </div>
+          </article>
+        {% else %}
+          <!-- Author couldn't be found with full_name '{{ page.header.custom_settings.author_name }}' -->
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
+

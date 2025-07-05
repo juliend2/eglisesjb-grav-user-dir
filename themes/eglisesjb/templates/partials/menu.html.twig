@@ -1,0 +1,19 @@
+<ul class="rd-navbar-nav">
+  {% for p in pages.children %}
+    <li class="rd-nav-item {{ p == page ? 'active' : '' }}">
+      <a class="rd-nav-link" href="{{ p.link }}">{{ p.title }}</a>
+      {% if p.children|length > 0 %}
+        <ul class="rd-menu rd-navbar-dropdown">
+        {% for subpage in p.children %}
+          <li class="rd-dropdown-item {{ subpage == page ?  'active' : '' }}">
+            <a class="rd-dropdown-link" href="{{ subpage.link }}">
+              {{ subpage.title }}
+            </a>
+          </li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>
+

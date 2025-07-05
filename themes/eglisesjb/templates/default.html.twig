@@ -1,0 +1,32 @@
+{% extends 'layouts/base.html.twig' %}
+
+{% block breadcrumbs %}
+  <section class="breadcrumbs-custom bg-image context-dark" style="background-image: url(images/sjb-header-apropos.jpg);">
+    <div class="breadcrumbs-custom-inner">
+      <div class="container breadcrumbs-custom-container">
+        <div class="breadcrumbs-custom-main">
+          <h6 class="breadcrumbs-custom-subtitle title-decorated">{{ page.parent.root ? page.title : page.parent.title }}</h6>
+          <h1 class="breadcrumbs-custom-title">{{ page.title }}</h1>
+        </div>
+        <ul class="breadcrumbs-custom-path">
+          {{ breadcrumbs(page)|raw }}
+          {# <li><a href="index.php">Accueil</a></li>
+          <li><a href="a-propos.php">A propos</a></li> #}
+          {# <li class="active">À propos de l'église</li> #}
+        </ul>
+      </div>
+    </div>
+  </section>
+{% endblock %}
+
+{% block content %}
+
+          <b>{{ page.parent.title|raw }}</b>
+          <br>
+
+  {# page.header.custom_settings.an_example_text_field #}
+
+  {{ page.content|raw }}
+
+{% endblock %}
+

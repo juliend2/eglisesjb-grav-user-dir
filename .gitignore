@@ -11,6 +11,7 @@ plugins/*
 !plugins/.*
 themes/*
 !themes/.*
+!themes/eglisesjb/
 #**/config/security.yaml
 
 # Environments
@@ -26,4 +27,5 @@ Thumbs.db
 # testing stuff
 config/versions.yaml
 
-
+# Dev
+themes/eglisesjb/node_modules/

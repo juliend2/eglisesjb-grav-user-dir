@@ -1,0 +1,18 @@
+title: 'Église Saint Jean Baptiste'
+default_lang: fr
+author:
+  name: 'Alain Mongeau'
+  email: amongeau@gmail.com
+taxonomies:
+  - tag
+metadata:
+  description: 'Grav is an easy to use, yet powerful, open source flat-file CMS'
+summary:
+  enabled: true
+  format: short
+  size: 300
+  delimiter: '==='
+redirects: null
+routes: null
+blog:
+  route: /blog

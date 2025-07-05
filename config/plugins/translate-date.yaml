@@ -1,0 +1,4 @@
+enabled: true
+processor: basic # `basic|intl`
+formats:
+  fr: 'Y-m-d H:i'

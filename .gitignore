@@ -1,0 +1,29 @@
+# Text editors
+.vscode/
+*.swp
+
+# Grav
+accounts/*
+!accounts/.*
+data/*
+!data/.*
+plugins/*
+!plugins/.*
+themes/*
+!themes/.*
+#**/config/security.yaml
+
+# Environments
+.env
+.gravenv
+
+# OS Generated
+.DS_Store*
+ehthumbs.db
+Icon?
+Thumbs.db
+
+# testing stuff
+config/versions.yaml
+
+

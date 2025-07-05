@@ -1,0 +1,145 @@
+title: Authors
+description: Simple Authors directory.
+type: flex-objects
+
+# Flex Configuration
+config:
+  # Administration Configuration
+  admin:
+    # Admin router (optional)
+    router:
+      path: '/authors'
+
+    # Admin menu (optional)
+    menu:
+      list:
+        route: '/authors'
+        title: Authors
+        icon: fa-address-card-o
+        # Authorization to collection admin
+        authorize: ['admin.authors.list', 'admin.super']
+        # Priority -10 .. 10 (highest goes up)
+        priority: 2
+
+    # Admin template type / folder
+    template: default
+
+    # Permissions
+    permissions:
+      # Primary permissions
+      admin.authors:
+        type: crudpl
+        label: Authors
+
+    # List view
+    list:
+      title: name
+      fields:
+        published:
+          field:
+            type: toggle
+            label: Publ
+          width: 8
+        last_name:
+          link: edit
+        first_name:
+          link: edit
+        email:
+        website:
+        tags:
+
+    # Edit View
+    edit:
+      title:
+        template: '{{ object.last_name ?? ''Last'' }}, {{ object.first_name ?? ''First Name'' }}'
+
+    # Preview View
+    preview:
+      enabled: false
+      route:
+        #template: '/plugins/flex-objects/directory:authors'
+
+    # Data Export
+    export:
+      enabled: true
+      method: 'jsonSerialize'
+      formatter:
+        class: 'Grav\Framework\File\Formatter\YamlFormatter'
+      filename: 'authors'
+
+  # Site Configuration
+  site:
+    templates:
+      collection:
+        # Lookup for the template layout files for collections of objects
+        paths:
+          - 'flex/{TYPE}/collection/{LAYOUT}{EXT}'
+      object:
+        # Lookup for the template layout files for objects
+        paths:
+          - 'flex/{TYPE}/object/{LAYOUT}{EXT}'
+      defaults:
+        # Default template {TYPE}; overridden by filename of this blueprint if template folder exists
+        type: authors
+        # Default template {LAYOUT}; can be overridden in render calls (usually Twig in templates)
+        layout: default
+
+  # Data Configuration
+  data:
+    # Object class to be used, allowing custom methods for the object
+    object: 'Grav\Common\Flex\Types\Generic\GenericObject'
+    # Collection class to be used, allowing custom methods for the collections
+    collection: 'Grav\Common\Flex\Types\Generic\GenericCollection'
+    # Index class to be used, works as a quick database-like lookup index
+    index: 'Grav\Common\Flex\Types\Generic\GenericIndex'
+    storage:
+      # Storage class, use single file storage (does not support images and assets)
+      class: 'Grav\Framework\Flex\Storage\SimpleStorage'
+      options:
+        formatter:
+          # File formatter class, in this case the file is stored in markdown
+          class: 'Grav\Framework\File\Formatter\JsonFormatter'
+        # JSON file where all the objects will be stored
+        folder: user-data://flex-objects/authors.json
+    search:
+      # Search options
+      options:
+        contains: 1
+      # Fields to be searched
+      fields:
+        - last_name
+        - first_name
+        - email
+
+form:
+  validation: loose
+
+  fields:
+    photo_file:
+      type: text
+      label: Fichier de la photo
+
+    last_name:
+      type: text
+      label: Nom de famille
+      validate:
+        required: true
+
+    first_name:
+      type: text
+      label: Prénom
+      validate:
+        required: true
+
+    email:
+      type: email
+      label: Email
+
+    website:
+      type: url
+      label: Site Web
+
+    short_bio:
+      type: textarea
+      label: Biographie
+

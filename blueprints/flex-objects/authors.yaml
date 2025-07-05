@@ -40,13 +40,10 @@ config:
             type: toggle
             label: Publ
           width: 8
-        last_name:
+        full_name:
           link: edit
-        first_name:
+        role:
           link: edit
-        email:
-        website:
-        tags:
 
     # Edit View
     edit:

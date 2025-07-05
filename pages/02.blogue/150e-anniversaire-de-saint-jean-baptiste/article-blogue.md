@@ -1,7 +1,7 @@
 ---
 title: '150e anniversaire de Saint-Jean-Baptiste'
 custom_settings:
-    author_name: 'Alain Mongeau'
+    author_name: 'Rodrigue Escayola'
     an_example_text_field: 5
 publish_date: '10-09-2023 00:00'
 taxonomy:

@@ -121,10 +121,6 @@ form:
       accept:
         - image/*
 
-    photo_file:
-      type: text
-      label: Fichier de la photo
-
     full_name:
       type: text
       label: Nom complet

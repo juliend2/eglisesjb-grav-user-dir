@@ -1,17 +1,7 @@
 ---
 visible: false
+media_order: image-fond-mince.jpg
 ---
 
-<section class="section section-sm text-center bg-image context-dark" style="background-image: url('images/image-fond-mince.jpg')">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-sm-10 col-md-12">
-        <div class="box-cta-thin">
-          <h4 class="wow-outer"><span>Vous avez des questions&nbsp;?</span></h4>
-          <div class="button-outer"><a class="btn-md button button-primary
-              button-winona wow slideInLeft" href="/contact">Contactez-nous&nbsp;!</a></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+<h4 class="wow-outer"><span>Vous avez des questions&nbsp;?</span></h4>
+<div class="button-outer"><a class="btn-md button button-primary button-winona wow slideInLeft" href="/contact">Contactez-nous&nbsp;!</a></div>

@@ -2,6 +2,7 @@
 title: Messes
 custom_settings:
     an_example_text_field: 5
+visible: true
 ---
 
 # Horaire régulier des célébrations

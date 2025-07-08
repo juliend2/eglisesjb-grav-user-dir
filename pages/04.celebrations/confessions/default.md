@@ -2,6 +2,7 @@
 title: 'Accueils et Confessions'
 custom_settings:
     an_example_text_field: 5
+visible: true
 ---
 
 On peut recevoir et célébrer le sacrement du pardon en rencontrant un prêtre.

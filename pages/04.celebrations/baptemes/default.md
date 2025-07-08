@@ -2,6 +2,7 @@
 title: Baptêmes
 custom_settings:
     an_example_text_field: 5
+visible: true
 ---
 
 > Moi, je vous baptise dans l'eau, pour vous amener à la conversion.

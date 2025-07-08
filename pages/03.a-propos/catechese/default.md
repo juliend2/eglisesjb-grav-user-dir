@@ -2,6 +2,7 @@
 title: Catéchèse
 custom_settings:
     an_example_text_field: 5
+visible: true
 ---
 
 ## Une catéchèse familiale adaptée au rythme et à la croissance de chacun

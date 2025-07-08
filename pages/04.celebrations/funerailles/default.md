@@ -2,6 +2,7 @@
 title: Funérailles
 custom_settings:
     an_example_text_field: 5
+visible: true
 ---
 
 ## On entoure la mort du même respect que l’on accorde à la vie.

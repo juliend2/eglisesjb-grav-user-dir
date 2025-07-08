@@ -2,6 +2,7 @@
 title: Mariages
 custom_settings:
     an_example_text_field: 5
+visible: true
 ---
 
 # Vous désirez vous marier à l’église Saint-Jean-Baptiste ?

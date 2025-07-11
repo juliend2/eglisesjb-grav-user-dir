@@ -22,4 +22,11 @@ form:
               validate:
                 required: true
                 type: text
+            header.custom_settings.post_header_image:
+              type: file
+              label: Image d'en-tête
+              destination: 'self@'
+              multiple: false
+              accept:
+                - image/*
 

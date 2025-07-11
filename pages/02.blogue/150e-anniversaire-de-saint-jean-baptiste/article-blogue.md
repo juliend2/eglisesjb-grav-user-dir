@@ -3,6 +3,12 @@ title: '150e anniversaire de Saint-Jean-Baptiste'
 custom_settings:
     author_name: 'Rodrigue Escayola'
     an_example_text_field: 5
+    post_header_image:
+        header-blog.jpg:
+            name: header-blog.jpg
+            type: image/jpeg
+            size: 370366
+            path: header-blog.jpg
 publish_date: '10-09-2023 00:00'
 taxonomy:
     tag:

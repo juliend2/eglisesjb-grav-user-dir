@@ -10,9 +10,6 @@
         </div>
         <ul class="breadcrumbs-custom-path">
           {{ breadcrumbs(page)|raw }}
-          {# <li><a href="index.php">Accueil</a></li>
-          <li><a href="a-propos.php">A propos</a></li> #}
-          {# <li class="active">À propos de l'église</li> #}
         </ul>
       </div>
     </div>
@@ -20,13 +17,13 @@
 {% endblock %}
 
 {% block content %}
-
-          <b>{{ page.parent.title|raw }}</b>
-          <br>
-
-  {# page.header.custom_settings.an_example_text_field #}
-
-  {{ page.content|raw }}
-
+  <section class="section section-lg bg-gray-100">
+    <div class="container">
+      <div class="row row-50 justify-content-center justify-content-lg-between">
+        <div class="col-md-10 col-lg-6 col-xl-5">
+        {{ page.content|raw }}
+      </div>
+    </div>
+  </section>
 {% endblock %}
 

@@ -1,7 +1,8 @@
 {% extends 'layouts/base.html.twig' %}
 
 {% block breadcrumbs %}
-  <section class="breadcrumbs-custom bg-image context-dark" style="background-image: url(images/sjb-header-apropos.jpg);">
+  {% set image_name = array_keys(page.header.custom_settings.post_header_image)[0] ?? 'header-blog.jpg' %}
+  <section class="breadcrumbs-custom bg-image context-dark" style="background-image: url('{{ page.media[image_name].url }}');">
     <div class="breadcrumbs-custom-inner">
       <div class="container breadcrumbs-custom-container">
         <div class="breadcrumbs-custom-main">

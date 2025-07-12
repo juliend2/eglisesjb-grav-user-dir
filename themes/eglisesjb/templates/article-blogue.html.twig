@@ -1,22 +1,5 @@
 {% extends 'layouts/base.html.twig' %}
 
-{% block breadcrumbs %}
-  {% set image_name = array_keys(page.header.custom_settings.post_header_image)[0] ?? 'header-blog.jpg' %}
-  <section class="breadcrumbs-custom bg-image context-dark" style="background-image: url('{{ page.media[image_name].url }}');">
-    <div class="breadcrumbs-custom-inner">
-      <div class="container breadcrumbs-custom-container">
-        <div class="breadcrumbs-custom-main">
-          <h6 class="breadcrumbs-custom-subtitle title-decorated">{{ page.parent.root ? page.title : page.parent.title }}</h6>
-          <h1 class="breadcrumbs-custom-title">{{ page.title }}</h1>
-        </div>
-        <ul class="breadcrumbs-custom-path">
-          {{ breadcrumbs(page)|raw }}
-        </ul>
-      </div>
-    </div>
-  </section>
-{% endblock %}
-
 {% block content %}
 <section class="section section-lg">
   <div class="container">

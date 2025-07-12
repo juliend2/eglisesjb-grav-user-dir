@@ -2,6 +2,12 @@
 title: Donner
 custom_settings:
     an_example_text_field: 5
+    post_header_image:
+        sjb-header-donner.jpg:
+            name: sjb-header-donner.jpg
+            type: image/jpeg
+            size: 343161
+            path: sjb-header-donner.jpg
 ---
 
 ### À vous qui nous visitez sur ce site,

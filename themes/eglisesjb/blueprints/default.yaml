@@ -15,6 +15,14 @@ form:
           type: tab
           title: Custom settings
           fields:
+            header.custom_settings.post_header_image:
+              type: file
+              label: Image d'en-tête
+              destination: 'self@'
+              multiple: false
+              accept:
+                - image/*
+
             # header.custom_settings.an_example_text_field:
             #   type: text
             #   label: Add a number

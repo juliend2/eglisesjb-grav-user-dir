@@ -1,21 +1,5 @@
 {% extends 'layouts/base.html.twig' %}
 
-{% block breadcrumbs %}
-  <section class="breadcrumbs-custom bg-image context-dark" style="background-image: url(images/sjb-header-apropos.jpg);">
-    <div class="breadcrumbs-custom-inner">
-      <div class="container breadcrumbs-custom-container">
-        <div class="breadcrumbs-custom-main">
-          <h6 class="breadcrumbs-custom-subtitle title-decorated">{{ page.parent.root ? page.title : page.parent.title }}</h6>
-          <h1 class="breadcrumbs-custom-title">{{ page.title }}</h1>
-        </div>
-        <ul class="breadcrumbs-custom-path">
-          {{ breadcrumbs(page)|raw }}
-        </ul>
-      </div>
-    </div>
-  </section>
-{% endblock %}
-
 {% block content %}
   <section class="section section-lg bg-gray-100">
     <div class="container">

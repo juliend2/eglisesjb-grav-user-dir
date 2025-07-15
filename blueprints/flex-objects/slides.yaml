@@ -1,0 +1,171 @@
+title: Slides de l'accueil
+description: Gestion des slides qui s'affichent dans la page d'accueil.
+type: flex-objects
+
+# Flex Configuration
+config:
+  # Administration Configuration
+  admin:
+    # Admin router (optional)
+    router:
+      path: '/slides'
+
+    # Admin menu (optional)
+    menu:
+      list:
+        route: '/slides'
+        title: Slides
+        icon: fa-address-card-o
+        # Authorization to collection admin
+        authorize: ['admin.slides.list', 'admin.super']
+        # Priority -10 .. 10 (highest goes up)
+        priority: 2
+
+    # Admin template type / folder
+    template: default
+
+    # Permissions
+    permissions:
+      # Primary permissions
+      admin.slides:
+        type: crudpl
+        label: Slides
+
+    # List view
+    list:
+      title: name
+      fields:
+        pre_title:
+          link: edit
+        big_title:
+          link: edit
+        small_subtitle:
+          link: edit
+
+    # Edit View
+    edit:
+      title:
+        template: '{{ object.last_name ?? ''Last'' }}, {{ object.first_name ?? ''First Name'' }}'
+
+    # Preview View
+    preview:
+      enabled: false
+      route:
+        #template: '/plugins/flex-objects/directory:slides'
+
+    # Data Export
+    export:
+      enabled: true
+      method: 'jsonSerialize'
+      formatter:
+        class: 'Grav\Framework\File\Formatter\YamlFormatter'
+      filename: 'slides'
+
+  # Site Configuration
+  site:
+    templates:
+      collection:
+        # Lookup for the template layout files for collections of objects
+        paths:
+          - 'flex/{TYPE}/collection/{LAYOUT}{EXT}'
+      object:
+        # Lookup for the template layout files for objects
+        paths:
+          - 'flex/{TYPE}/object/{LAYOUT}{EXT}'
+      defaults:
+        # Default template {TYPE}; overridden by filename of this blueprint if template folder exists
+        type: slides
+        # Default template {LAYOUT}; can be overridden in render calls (usually Twig in templates)
+        layout: default
+
+  # Data Configuration
+  data:
+    # Object class to be used, allowing custom methods for the object
+    object: 'Grav\Common\Flex\Types\Generic\GenericObject'
+    # Collection class to be used, allowing custom methods for the collections
+    collection: 'Grav\Common\Flex\Types\Generic\GenericCollection'
+    # Index class to be used, works as a quick database-like lookup index
+    index: 'Grav\Common\Flex\Types\Generic\GenericIndex'
+    storage:
+      # Storage class, use single file storage (does not support images and assets)
+      class: 'Grav\Framework\Flex\Storage\SimpleStorage'
+      options:
+        formatter:
+          # File formatter class, in this case the file is stored in markdown
+          class: 'Grav\Framework\File\Formatter\JsonFormatter'
+        # JSON file where all the objects will be stored
+        folder: user-data://flex-objects/slides.json
+    search:
+      # Search options
+      options:
+        contains: 1
+      # Fields to be searched
+      fields:
+        - pre_title
+        - big_title
+        - small_subtitle
+
+form:
+  validation: loose
+
+  fields:
+    dark_text_on_light_background:
+      name: dark_text_on_light_background
+      type: toggle
+      label: Texte foncé sur fond pâle
+      highlight: 1
+      default: 1
+      options:
+        1: PLUGIN_ADMIN.YES
+        0: PLUGIN_ADMIN.NO
+      validate:
+        type: bool
+        required: true
+
+    desktop_image:
+      name: desktop_image
+      type: file
+      label: Image pour écrans larges
+      destination: 'themes://eglisesjb/assets/slides-widescreen'
+      multiple: false
+      accept:
+        - image/*
+
+    mobile_image:
+      name: mobile_image
+      type: file
+      label: Image pour écrans de mobiles
+      destination: 'themes://eglisesjb/assets/slides-mobile'
+      multiple: false
+      accept:
+        - image/*
+
+    pre_title:
+      type: text
+      label: Pré-titre (petit)
+      validate:
+        required: false
+
+    big_title:
+      type: text
+      label: Gros titre principal
+      validate:
+        required: false
+
+    small_subtitle:
+      type: text
+      label: Sous titre (petit)
+      validate:
+        required: false
+
+    body_text:
+      type: textarea
+      label: Texte
+
+    link_url:
+      type: text
+      label: URL du Lien
+
+    cta_text:
+      type: text
+      label: Texte du bouton

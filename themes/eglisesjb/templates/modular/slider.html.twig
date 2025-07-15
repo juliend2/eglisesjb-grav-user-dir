@@ -1,0 +1,92 @@
+{% set slides = grav.get('flex').collection('slides') %}
+
+<section class="section swiper-container swiper-slider swiper-slider-business context-dark" data-loop="true" data-slide-effect="fade" data-autoplay="20000000" data-simulate-touch="false" data-custom-slide-effect="inter-leave-effect">
+  <div class="swiper-wrapper">
+
+    {% for slide in slides %}
+      <div class="swiper-slide {{ slide.dark_text_on_light_background ? 'context-light' : '' }}" data-slide-bg="{{ slide.desktop_image ? array_keys(slide.desktop_image)[0]|replace({'themes://eglisesjb': theme_url}) : '' }}">
+        <div class="slide-inner">
+          <div class="swiper-slide-caption">
+            <div class="container">
+              {% if slide.pre_title %}
+              <div class="heading-6"><span data-caption-animate="slideInUp">{{ slide.pre_title }}</span></div>
+              {% endif %}
+
+              {% if slide.big_title %}
+                <h1><span data-caption-animate="slideInDown">{{ slide.big_title }}</span></h1>
+              {% endif %}
+
+              {% if slide.small_subtitle %}
+                <div class="heading-6 blue-text"><span data-caption-animate="slideInUp"><br>{{ slide.small_subtitle }}</span></div>
+              {% endif %}
+
+              {% if slide.body_text %}
+              <div class="">
+                <p class="big" data-caption-animate="slideInLeft">
+                  {{ slide.body_text|markdown }}
+                </p>
+              </div>
+              {% endif %}
+
+              {% if slide.cta_text and slide.link_url %}
+                <div class="button-outer"><a class="button button-lg button-primary button-winona" href="{{ slide.link_url }}" data-caption-animate="slideInUp">{{ slide.cta_text }}</a></div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+
+    {#
+    <div class="swiper-slide context-light" data-slide-bg="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAABHNCSVQICAgIfAhkiAAAAAFzUkdCAK7OHOkAAAATSURBVAhbY/z/n+E/AxJgJF0AAOEbC/nUTGMnAAAAAElFTkSuQmCC">
+      <div class="slide-inner">
+        <div class="swiper-slide-caption">
+          <div class="container">
+            <h1><span data-caption-animate="slideInDown">Arrêt des messes en semaine pour l'été</span></h1>
+            <div class="heading-6 blue-text"><span data-caption-animate="slideInUp"><br>De retour en automne (Dates à venir).</span></div>
+            <div class="">
+              <p class="big" data-caption-animate="slideInLeft">
+                Bonnes vacances!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="swiper-slide" data-slide-bg="images/sjb-header.jpg">
+      <div class="slide-inner">
+        <div class="swiper-slide-caption">
+          <div class="container">
+            <div class="heading-6"><span data-caption-animate="slideInUp">Bienvenue à l'Église</span></div>
+            <h1><span data-caption-animate="slideInDown">Saint-Jean-Baptiste</span></h1>
+            <div class="swiper-caption-text">
+              <div class="swiper-caption-text-decoration" data-caption-animate="scaleInVertical"></div>
+              <div class="swiper-caption-text-inner">
+                <p class="big" data-caption-animate="slideInLeft">Il n’existe plus beaucoup d’endroits, dans nos sociétés hyper individualistes, où hommes et femmes, jeunes et vieux, familles et personnes seules, riches et pauvres, gens d’ici et d’ailleurs peuvent se retrouver pour fraterniser et collaborer ensemble. C’est le défi que s’est donné la paroisse Saint-Jean-Baptiste.</p>
+              </div>
+            </div>
+            <div class="button-outer"><a class="button button-lg button-primary button-winona" href="a-propos.php" data-caption-animate="slideInUp">En savoir plus</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="swiper-slide" data-slide-bg="images/sjb-header-sauvegarde.jpg">
+      <div class="slide-inner">
+        <div class="swiper-slide-caption">
+          <div class="container">
+            <div class="heading-6"><span data-caption-animate="slideInUp">Sauvegarde de l'église</span></div>
+            <h1><span data-caption-animate="slideInDown">Campagne de financement <br>2021-2024</span></h1>
+            <div class="button-outer"><a class="button button-lg button-primary button-winona" href="sauvegarde.php" data-caption-animate="slideInUp">Faites un don</a></div>
+          </div>
+        </div>
+      </div>
+    </div> #}
+  </div>
+
+  <div class="swiper-slider-nav container">
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+</section>

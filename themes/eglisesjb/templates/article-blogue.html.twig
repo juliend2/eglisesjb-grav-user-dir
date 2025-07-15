@@ -29,7 +29,7 @@
         {% if author %}
           <article class="profile-thin">
             <div class="profile-thin-aside">
-              <img class="profile-thin-image" src="{{ array_keys(author.photo)[0]|replace({'themes://eglisesjb': theme_url})}}" alt="" />
+              <img class="profile-thin-image" src="{{ array_keys(author.photo)[0]|replace({'themes://eglisesjb': theme_url}) }}" alt="" />
             </div>
             <div class="profile-thin-main">
                 <p class="profile-thin-title">{{ author.full_name }}</p>

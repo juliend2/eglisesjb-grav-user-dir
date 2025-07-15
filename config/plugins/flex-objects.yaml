@@ -8,6 +8,7 @@ admin_list:
     dir: desc
 directories:
   - 'blueprints://flex-objects/authors.yaml'
+  - 'blueprints://flex-objects/slides.yaml'
   - 'blueprints://flex-objects/contacts.yaml'
   - 'blueprints://flex-objects/pages.yaml'
   - 'blueprints://flex-objects/user-accounts.yaml'

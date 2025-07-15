@@ -26,7 +26,7 @@
         <div class="col-md-6 scaleFadeInWrap">
           <div class="wow scaleFadeIn">
             {% set image_name = array_keys(post.header.custom_settings.post_header_image)[0] ?? 'header-blog.jpg' %}
-            <article class="post-modern"><a class="post-modern-media" href="{{ post.link}}"><img src="{{ post.media[image_name].url }}" alt="{{ post.title }}"/></a>
+            <article class="post-modern"><a class="post-modern-media" href="{{ post.link }}"><img src="{{ post.media[image_name].url }}" alt="{{ post.title }}"/></a>
               <h4 class="post-modern-title">
                 <a class="underlined" href="{{ post.link }}">{{ post.title }}</a>
               </h4>

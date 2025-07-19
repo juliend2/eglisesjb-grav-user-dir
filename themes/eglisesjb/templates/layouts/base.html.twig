@@ -71,6 +71,11 @@
   {% else %}
     {% set image_url = url('theme://images/header-blog.jpg') %}
   {% endif %}
+  {% if page.home %}
+    {% set image_url = '' %}
+  {% endif %}
+
+  {% if image_url != '' %}
   <section class="breadcrumbs-custom bg-image context-dark" style="background-image: url('{{ image_url }}');">
     <div class="breadcrumbs-custom-inner">
       <div class="container breadcrumbs-custom-container">
@@ -84,6 +89,7 @@
       </div>
     </div>
   </section>
+  {% endif %}
 
 {% endblock %}
 

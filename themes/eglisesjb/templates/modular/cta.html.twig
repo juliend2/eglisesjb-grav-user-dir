@@ -1,14 +1,16 @@
-
+{% set styles = 'background-color: #192531' %}
 {% for image in page.media.images %}
-  <section class="section section-sm text-center bg-image context-dark" style="background-image: url('{{ image.url }}')">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-sm-10 col-md-12">
-          <div class="box-cta-thin">
-            {{page.content|raw}}
-          </div>
+  {% set styles = "background-image: url('"~image.url~"')" %}
+{% endfor %}
+
+<section class="section section-sm text-center bg-image context-dark" style="{{ styles }}">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-sm-10 col-md-12">
+        <div class="box-cta-thin">
+          {{page.content|raw}}
         </div>
       </div>
     </div>
-  </section>
-{% endfor %}
+  </div>
+</section>

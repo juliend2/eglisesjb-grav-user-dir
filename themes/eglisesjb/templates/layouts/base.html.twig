@@ -71,6 +71,8 @@
   {% else %}
     {% set image_url = url('theme://images/header-blog.jpg') %}
   {% endif %}
+
+  {# If home page, unset the image url: #}
   {% if page.home %}
     {% set image_url = '' %}
   {% endif %}

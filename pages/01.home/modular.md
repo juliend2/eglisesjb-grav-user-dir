@@ -7,9 +7,8 @@ content:
         by: default
         dir: asc
         custom:
-            - _mot_de_bienvenue
-            - _historique
-            - _cta_questions
+            - _slider
+            - _cta_messe_en_ligne
 custom_settings:
     has_slider: true
 ---
